@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('nome');
             $table->double('valor_pago');
             $table->string('data_compra');
-            $table->text('descricao');
+            $table->string('descricao');
             $table->foreignId('produto_id')->constrained('produtos');
             $table->timestamps();
         });
