@@ -25,9 +25,8 @@ class RelatorioVendaController extends Controller{
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
+    public function create(){
+
     }
 
     /**
@@ -36,9 +35,8 @@ class RelatorioVendaController extends Controller{
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request){
+
     }
 
     /**
@@ -63,7 +61,6 @@ class RelatorioVendaController extends Controller{
     public function edit($id){
         $relatorio = $this->relatorio_vendas->find($id);
         return $relatorio;
-
     }
 
     /**
@@ -73,9 +70,19 @@ class RelatorioVendaController extends Controller{
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
+    //Testar depois
+    public function update(Request $request, $id){
+        $relatorio = $this->relatorio_vendas->find($id);
+        $relatorio->update([
+            'nome' => $request->nome,
+            'valor_pago' => $request->valor_pago,
+            'data_compra' => $request->data_compra,
+            'descricao' => $request->descricao,
+            'produto_id' => tap($this->produtos->find($relatorio->produto_id))->update([
+                'nome' => $request->nome,
+                'preco' => $request->preco
+            ])->id,
+        ]);
     }
 
     /**
@@ -84,8 +91,8 @@ class RelatorioVendaController extends Controller{
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+    public function destroy($id){
+        $relatorio = $this->relatorio_vendas->find($id);
+        $relatorio->delete();
     }
 }
