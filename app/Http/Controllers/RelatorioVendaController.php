@@ -47,9 +47,11 @@ class RelatorioVendaController extends Controller{
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
+    public function show($id){
+        $form = 'disabled';
+
+        $relatorio = $this->relatorio_vendas->find($id);
+        return [$form, $relatorio];
     }
 
     /**
@@ -58,9 +60,10 @@ class RelatorioVendaController extends Controller{
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
+    public function edit($id){
+        $relatorio = $this->relatorio_vendas->find($id);
+        return $relatorio;
+
     }
 
     /**
