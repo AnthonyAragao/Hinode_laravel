@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\Produto;
 use App\Models\RelatorioVenda;
 use Illuminate\Http\Request;
 
@@ -8,6 +10,7 @@ class RelatorioVendaController extends Controller{
 
     public function __construct(RelatorioVenda $relatorio_vendas){
         $this->relatorio_vendas = $relatorio_vendas;
+        $this->produtos = Produto::all()->pluck('nome', 'id');
     }
 
     /**
@@ -17,7 +20,7 @@ class RelatorioVendaController extends Controller{
      */
     public function index(){
         $relatorio_vendas = $this->relatorio_vendas->all();
-        return $relatorio_vendas;
+        return view('relatorioVendas', compact('relatorio_vendas'));
     }
 
     /**
@@ -26,7 +29,8 @@ class RelatorioVendaController extends Controller{
      * @return \Illuminate\Http\Response
      */
     public function create(){
-
+        $produtos = $this->produtos;
+        return view('formRelatorio', compact('produtos'));
     }
 
     /**
@@ -49,7 +53,7 @@ class RelatorioVendaController extends Controller{
         $form = 'disabled';
 
         $relatorio = $this->relatorio_vendas->find($id);
-        return [$form, $relatorio];
+        return view('formRelatorio', compact('form', 'relatorio'));
     }
 
     /**
@@ -60,7 +64,7 @@ class RelatorioVendaController extends Controller{
      */
     public function edit($id){
         $relatorio = $this->relatorio_vendas->find($id);
-        return $relatorio;
+        return view('formRelatorio', compact('relatorio'));
     }
 
     /**

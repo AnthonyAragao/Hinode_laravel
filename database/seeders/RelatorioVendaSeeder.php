@@ -22,5 +22,20 @@ class RelatorioVendaSeeder extends Seeder
             'produto_id' => 1
         ]);
 
+        DB::table('relatorio_vendas')->insert([
+            'nome' => 'Tercio',
+            'valor_pago' => '100',
+            'data_compra' => '03/02/2023',
+            'descricao' => 'Falta pagar a segunda parcela',
+            'produto_id' => 2
+        ]);
+
+        DB::table('relatorio_vendas')->insert([
+            'nome' => 'Rodrigo',
+            'valor_pago' => '55.9',
+            'data_compra' => '05/02/2023',
+            'descricao' => 'Falta pagar a segunda parcela',
+            'produto_id' => 3
+        ]);
     }
 }

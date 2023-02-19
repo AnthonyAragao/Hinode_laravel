@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProdutoController;
+use App\Http\Controllers\RelatorioVendaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,3 +26,8 @@ Route::post('produtos_store', [ProdutoController::class, 'store'])->name('produt
 Route::get('produtos_show/{id}', [ProdutoController::class, 'show'])->name('produtos.show');
 Route::put('produtos_update/{id}',[ProdutoController::class, 'update'])->name('produtos.update');
 Route::delete('produtos_destroy/{id}', [ProdutoController::class, 'destroy'])->name('produtos.destroy');
+
+Route::get('relatorio_vendas_index', [RelatorioVendaController::class, 'index'])->name('relatorio.index');
+Route::get('relatorio_vendas_create', [RelatorioVendaController::class, 'create'])->name('relatorio.create');
+Route::get('relatorio_vendas_show/{id}', [RelatorioVendaController::class, 'show'])->name('relatorio.show');
+Route::get('relatorio_vendas_edit/{id}', [RelatorioVendaController::class, 'edit'])->name('relatorio.edit');
