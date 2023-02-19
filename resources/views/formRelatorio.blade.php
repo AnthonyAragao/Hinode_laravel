@@ -33,10 +33,17 @@
 
             <br>
 
-            {{-- {!! Form::select('produtos', $produtos) !!} --}}
+            {{-- <h1>{{isset($relatorio)?$produtos->get($relatorio->produto_id):'null'}}</h1> --}}
 
+            {!! Form::label('produto', 'Produto:') !!}
+
+            @foreach ($produtos as $produto)
+                {!! Form::radio('produto[]', $loop->iteration, isset($relatorio) &&($relatorio->produto->find($loop->iteration) !== null),[ ($form)??null])!!}
+                {!! Form::label('produto[]', $produto) !!}
+            @endforeach
+
+            <br>
             {!! Form::submit('Salvar') !!}
-
         {!! Form::close() !!}
 
     </div>
