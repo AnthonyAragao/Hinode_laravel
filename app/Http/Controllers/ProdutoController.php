@@ -16,7 +16,7 @@ class ProdutoController extends Controller{
      */
     public function index(){
         $produtos = $this->produtos->all();
-        return $produtos;
+        return view('relatorioProdutos', compact('produtos'));
     }
 
     /**
@@ -25,7 +25,7 @@ class ProdutoController extends Controller{
      * @return \Illuminate\Http\Response
      */
     public function create(){
-
+        return view('formProdutos');
     }
 
     /**
@@ -35,6 +35,10 @@ class ProdutoController extends Controller{
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request){
+        $produto = $this->produtos->create([
+            'nome' => $request->nome,
+            'preco' => $request->preco
+        ]);
 
     }
 
@@ -47,7 +51,7 @@ class ProdutoController extends Controller{
     public function show($id){
         $form = 'disabled';
         $produto = $this->produtos->find($id);
-        return[$form, $produto];
+        return view('formProdutos', compact('form', 'produto'));
     }
 
     /**
@@ -58,7 +62,7 @@ class ProdutoController extends Controller{
      */
     public function edit($id){
         $produto = $this->produtos->find($id);
-        return $produto;
+        return view('formProdutos', compact('produto'));
     }
 
     /**

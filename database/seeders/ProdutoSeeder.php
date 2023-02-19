@@ -18,7 +18,17 @@ class ProdutoSeeder extends Seeder
             'nome' => 'empire',
             'preco' => '156.9'
         ]);
+
+        DB::table('produtos')->insert([
+            'nome' => 'Latitude Stamina',
+            'preco' => '139.9'
+        ]);
+
+        DB::table('produtos')->insert([
+            'nome' => 'Latitude Adventure',
+            'preco' => '139.9'
+        ]);
     }
 
-    
+
 }
