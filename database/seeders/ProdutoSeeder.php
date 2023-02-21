@@ -15,7 +15,7 @@ class ProdutoSeeder extends Seeder
      */
     public function run(){
         DB::table('produtos')->insert([
-            'nome' => 'empire',
+            'nome' => 'Empire',
             'preco' => '156.9'
         ]);
 
@@ -27,6 +27,11 @@ class ProdutoSeeder extends Seeder
         DB::table('produtos')->insert([
             'nome' => 'Latitude Adventure',
             'preco' => '139.9'
+        ]);
+
+        DB::table('produtos')->insert([
+            'nome' => 'Grace Mindningth',
+            'preco' => '147.9'
         ]);
     }
 

@@ -13,6 +13,7 @@
 
     <div>
         {!! Form::open(['route' => 'produtos.store','method' => 'POST', 'name' => 'form']) !!}
+
             {!!Form::label('nome', 'Nome: ')!!}
             {!!Form::text('nome', isset($produto)?$produto->nome:null, ['placeholder'=>'Informe o nome:', ($form)??null]) !!}
             <br>

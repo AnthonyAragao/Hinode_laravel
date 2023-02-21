@@ -35,12 +35,15 @@ class ProdutoController extends Controller{
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request){
+        $produtos = $this->produtos->all();
         $produto = $this->produtos->create([
             'nome' => $request->nome,
             'preco' => $request->preco
         ]);
-
+        
+        return redirect('produtos_index');
     }
+
 
     /**
      * Display the specified resource.
