@@ -1,13 +1,13 @@
 <?php
-
 namespace App\Http\Controllers;
+use App\Models\Produto;
 use App\Models\RelatorioVenda;
 use Illuminate\Http\Request;
 
 class RelatorioVendaController extends Controller{
-
     public function __construct(RelatorioVenda $relatorio_vendas){
         $this->relatorio_vendas = $relatorio_vendas;
+        $this->produtos = Produto::all();
     }
 
     /**
@@ -17,7 +17,7 @@ class RelatorioVendaController extends Controller{
      */
     public function index(){
         $relatorio_vendas = $this->relatorio_vendas->all();
-        return $relatorio_vendas;
+        return view('relatorioVendas', compact('relatorio_vendas'));
     }
 
     /**
@@ -26,7 +26,8 @@ class RelatorioVendaController extends Controller{
      * @return \Illuminate\Http\Response
      */
     public function create(){
-
+        $produtos = $this->produtos;
+        return view('formRelatorio', compact('produtos'));
     }
 
     /**
@@ -36,7 +37,15 @@ class RelatorioVendaController extends Controller{
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request){
-
+        $relatorio_vendas = $this->relatorio_vendas->all();
+        $relatorio = $this->relatorio_vendas->create([
+            'nome' => $request->nome,
+            'valor_pago' => $request->valor_pago,
+            'data_compra' => $request->data_compra,
+            'descricao' => $request->descricao,
+            'produto_id' => $request->produto_id
+        ]);
+        return redirect('relatorio_vendas_index');
     }
 
     /**
@@ -47,9 +56,9 @@ class RelatorioVendaController extends Controller{
      */
     public function show($id){
         $form = 'disabled';
-
+        $produtos = $this->produtos;
         $relatorio = $this->relatorio_vendas->find($id);
-        return [$form, $relatorio];
+        return view('showRelatorio', compact('form', 'relatorio', 'produtos'));
     }
 
     /**
@@ -60,7 +69,8 @@ class RelatorioVendaController extends Controller{
      */
     public function edit($id){
         $relatorio = $this->relatorio_vendas->find($id);
-        return $relatorio;
+        $produtos = $this->produtos;
+        return view('formRelatorio', compact('relatorio', 'produtos'));
     }
 
     /**
@@ -78,11 +88,9 @@ class RelatorioVendaController extends Controller{
             'valor_pago' => $request->valor_pago,
             'data_compra' => $request->data_compra,
             'descricao' => $request->descricao,
-            'produto_id' => tap($this->produtos->find($relatorio->produto_id))->update([
-                'nome' => $request->nome,
-                'preco' => $request->preco
-            ])->id,
+            'produto_id' => $request->produto_id
         ]);
+        return redirect('relatorio_vendas_index')->with('msg', 'Relatorio atualizado com Sucesso!');
     }
 
     /**
@@ -94,5 +102,6 @@ class RelatorioVendaController extends Controller{
     public function destroy($id){
         $relatorio = $this->relatorio_vendas->find($id);
         $relatorio->delete();
+        return redirect('relatorio_vendas_index')->with('msg','Relatorio deletado com Sucesso!');
     }
 }

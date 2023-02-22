@@ -16,7 +16,7 @@ class ProdutoController extends Controller{
      */
     public function index(){
         $produtos = $this->produtos->all();
-        return $produtos;
+        return view('relatorioProdutos', compact('produtos'));
     }
 
     /**
@@ -25,7 +25,7 @@ class ProdutoController extends Controller{
      * @return \Illuminate\Http\Response
      */
     public function create(){
-
+        return view('formProdutos');
     }
 
     /**
@@ -35,8 +35,15 @@ class ProdutoController extends Controller{
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request){
+        $produtos = $this->produtos->all();
+        $produto = $this->produtos->create([
+            'nome' => $request->nome,
+            'preco' => $request->preco
+        ]);
 
+        return redirect('produtos_index');
     }
+
 
     /**
      * Display the specified resource.
@@ -47,7 +54,7 @@ class ProdutoController extends Controller{
     public function show($id){
         $form = 'disabled';
         $produto = $this->produtos->find($id);
-        return[$form, $produto];
+        return view('showProduto', compact('form', 'produto'));
     }
 
     /**
@@ -58,7 +65,7 @@ class ProdutoController extends Controller{
      */
     public function edit($id){
         $produto = $this->produtos->find($id);
-        return $produto;
+        return view('formProdutos', compact('produto'));
     }
 
     /**
@@ -74,6 +81,7 @@ class ProdutoController extends Controller{
             'nome' => $request->nome,
             'preco' => $request->preco
         ]);
+        return redirect('produtos_index');
     }
 
     /**
@@ -83,7 +91,9 @@ class ProdutoController extends Controller{
      * @return \Illuminate\Http\Response
      */
     public function destroy($id){
+        // Produto::where('id', $id)->delete();
         $produto = $this->produtos->find($id);
         $produto->delete();
+        return redirect('produtos_index')->with('msg', 'Produto deletado com sucesso!');
     }
 }
