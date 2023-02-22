@@ -1,43 +1,38 @@
 @extends('templates.template')
 @section('content')
+
 <header>
-    <h1>Relatorio</h1>
+    <h1 class="text-center mt-5 mb-5">
+        @if(isset($relatorio))Editar Relatorio @else Relatorio @endif
+    </h1> <hr>
 </header>
 
-<div>
-    {!! Form::open([null, 'method' => 'POST', 'name' => 'form']) !!}
-        {!! Form::label('nome', 'Nome:') !!}
-        {!! Form::text('nome', isset($relatorio)?$relatorio->nome:null, ['placeholder'=>'Informe o nome:', ($form)??null]) !!}
+<div class="col-md-6 offset-md-3">
+    <form name="formCad" id="formCad" method="POST" action="{{route('relatorio.store')}}">
+        @csrf
+        <input class="form-control mt-4" type="text" name="nome" id="nome" placeholder="Nome: "
+        value=""> <br>
 
-        <br>
+        <input class="form-control " type="text" name="valor_pago" id="valor_pago" placeholder="Valor pago: "
+        value=""> <br>
 
-        {!! Form::label('valor_pago', 'Valor pago: ') !!}
-        {!! Form::number('valor_pago', isset($relatorio)?$relatorio->valor_pago:null, ['placeholder'=>'Informe o valor pago:', ($form)??null]) !!}
 
-        <br>
+        <input class="form-control" type="text" name="data_compra" id="data_compra" placeholder="Data da compra: "
+        value=""> <br>
 
-        {!! Form::label('data', 'Data da compra: ') !!}
-        {!! Form::text('data', isset($relatorio)?$relatorio->data_compra:null, ['placeholder'=>'Informe a data da compra:', ($form)??null]) !!}
+        <input class="form-control" type="text" name="descricao" id="descricao" placeholder="Descrição da venda: "
+        value=""> <br>
 
-        <br>
+        <select class="form-control" name="produto_id" id="produto_id">
+            <option value="">Produto:</option>
+            @foreach ($produtos as $produto)
+                <option value="{{$produto->id}}">{{$produto->nome}}</option>
+            @endforeach
+        </select> <br>
 
-        {!! Form::label('descricao', 'Descrição da venda: ') !!}
-        {!! Form::text('descricao', isset($relatorio)?$relatorio->descricao:null , ['placeholder'=>'Informe a Descrição da venda:' ,($form)??null]) !!}
-
-        <br>
-
-        {{-- <h1>{{isset($relatorio)?$produtos->get($relatorio->produto_id):'null'}}</h1> --}}
-
-        {!! Form::label('produto', 'Produto:') !!}
-
-        @foreach ($produtos as $produto)
-            {!! Form::radio('produto[]', $loop->iteration, isset($relatorio) &&($relatorio->produto->find($loop->iteration) !== null),[ ($form)??null])!!}
-            {!! Form::label('produto[]', $produto) !!}
-        @endforeach
-
-        <br>
-        {!! Form::submit('Salvar') !!}
-    {!! Form::close() !!}
-
+        <input class="btn btn-primary " type="submit" value="@if(isset($relatorio))Editar @else Cadastrar @endif">
+    </form>
 </div>
+
+
 @endsection

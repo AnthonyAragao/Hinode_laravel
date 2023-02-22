@@ -19,7 +19,7 @@
 @endif
 @csrf
 
-<div class="col-md-6 offset-md-3">
+<div class="col-md-6 offset-md-3"> 
     <form name="formCad" id="formCad" method="POST" action="{{route('produtos.store')}}">
         @csrf
         <input class="form-control mt-4" type="text" name="nome" id="nome" placeholder="Nome: "

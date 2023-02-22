@@ -30,5 +30,6 @@ Route::delete('produtos_destroy/{id}', [ProdutoController::class, 'destroy'])->n
 
 Route::get('relatorio_vendas_index', [RelatorioVendaController::class, 'index'])->name('relatorio.index');
 Route::get('relatorio_vendas_create', [RelatorioVendaController::class, 'create'])->name('relatorio.create');
+Route::post('relatorio_vendas_store', [RelatorioVendaController::class, 'store'])->name('relatorio.store');
 Route::get('relatorio_vendas_show/{id}', [RelatorioVendaController::class, 'show'])->name('relatorio.show');
 Route::get('relatorio_vendas_edit/{id}', [RelatorioVendaController::class, 'edit'])->name('relatorio.edit');

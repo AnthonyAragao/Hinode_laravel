@@ -4,7 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class RelatorioVenda extends Model{
     protected $table = 'relatorio_vendas';
-
+    protected $fillable = ['nome', 'valor_pago', 'data_compra', 'descricao', 'produto_id'];
 
     protected $hidden = [
         'produtoRelationship',
