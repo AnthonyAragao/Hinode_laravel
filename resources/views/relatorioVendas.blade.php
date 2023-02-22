@@ -13,13 +13,15 @@
     </a>
 </div>
 
+
+
 <div class="col-12 m-auto">
     <table class="table table-striped table-dark text-center">
         <thead>
             <tr>
                 <th scope="col">Id</th>
                 <th scope="col">Nome</th>
-                <th scope="col">Ações</th>
+                <th scope="col">. . .</th>
             </tr>
         </thead>
 
@@ -43,7 +45,5 @@
         @endforeach
         </tbody>
     </table>
-
 </div>
-
 @endsection

@@ -81,6 +81,7 @@ class ProdutoController extends Controller{
             'nome' => $request->nome,
             'preco' => $request->preco
         ]);
+        return redirect('produtos_index');
     }
 
     /**
@@ -90,7 +91,9 @@ class ProdutoController extends Controller{
      * @return \Illuminate\Http\Response
      */
     public function destroy($id){
+        // Produto::where('id', $id)->delete();
         $produto = $this->produtos->find($id);
         $produto->delete();
+        return redirect('produtos_index')->with('msg', 'Produto deletado com sucesso!');
     }
 }
