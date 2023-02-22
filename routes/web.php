@@ -32,4 +32,6 @@ Route::get('relatorio_vendas_index', [RelatorioVendaController::class, 'index'])
 Route::get('relatorio_vendas_create', [RelatorioVendaController::class, 'create'])->name('relatorio.create');
 Route::post('relatorio_vendas_store', [RelatorioVendaController::class, 'store'])->name('relatorio.store');
 Route::get('relatorio_vendas_show/{id}', [RelatorioVendaController::class, 'show'])->name('relatorio.show');
+Route::put('relatorio_vendas_update/{id}',[RelatorioVendaController::class, 'update'])->name('relatorio.update');
 Route::get('relatorio_vendas_edit/{id}', [RelatorioVendaController::class, 'edit'])->name('relatorio.edit');
+Route::delete('relatorio_vendas_destroy/{id}', [RelatorioVendaController::class, 'destroy'])->name('relatorio.destroy');

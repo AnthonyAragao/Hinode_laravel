@@ -88,11 +88,9 @@ class RelatorioVendaController extends Controller{
             'valor_pago' => $request->valor_pago,
             'data_compra' => $request->data_compra,
             'descricao' => $request->descricao,
-            'produto_id' => tap($this->produtos->find($relatorio->produto_id))->update([
-                'nome' => $request->nome,
-                'preco' => $request->preco
-            ])->id,
+            'produto_id' => $request->produto_id
         ]);
+        return redirect('relatorio_vendas_index')->with('msg', 'Relatorio atualizado com Sucesso!');
     }
 
     /**
@@ -104,5 +102,6 @@ class RelatorioVendaController extends Controller{
     public function destroy($id){
         $relatorio = $this->relatorio_vendas->find($id);
         $relatorio->delete();
+        return redirect('relatorio_vendas_index')->with('msg','Relatorio deletado com Sucesso!');
     }
 }
