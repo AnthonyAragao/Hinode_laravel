@@ -58,7 +58,7 @@ class RelatorioVendaController extends Controller{
         $form = 'disabled';
         $produtos = $this->produtos;
         $relatorio = $this->relatorio_vendas->find($id);
-        return view('formRelatorio', compact('form', 'relatorio', 'produtos'));
+        return view('showRelatorio', compact('form', 'relatorio', 'produtos'));
     }
 
     /**

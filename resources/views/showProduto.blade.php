@@ -6,7 +6,7 @@
 
 <div class="col-md-6 offset-md-3">
     Nome: {{$produto->nome}} <br>
-    Preco: {{$produto->preco}} <br>
+    Preco: {{number_format($produto->preco,2 ,",")}} <br>
 </div>
 
 @endsection

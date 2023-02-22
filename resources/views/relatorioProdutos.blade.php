@@ -33,7 +33,7 @@
                     <tr>
                         <th scope="row">{{$produto->id}}</th>
                         <td>{{$produto->nome}}</td>
-                        <td>{{$produto->preco}}</td>
+                        <td>{{number_format($produto->preco,2 ,",")}}</td>
 
                         <td class="d-flex ">
                             <a href="{{route('produtos.show', $produto->id)}}">
