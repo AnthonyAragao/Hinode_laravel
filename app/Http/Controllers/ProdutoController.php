@@ -40,7 +40,7 @@ class ProdutoController extends Controller{
             'nome' => $request->nome,
             'preco' => $request->preco
         ]);
-        
+
         return redirect('produtos_index');
     }
 
@@ -54,7 +54,7 @@ class ProdutoController extends Controller{
     public function show($id){
         $form = 'disabled';
         $produto = $this->produtos->find($id);
-        return view('formProdutos', compact('form', 'produto'));
+        return view('showProduto', compact('form', 'produto'));
     }
 
     /**

@@ -1,32 +1,18 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <header>
-        <h1>Cadastrar Produto</h1>
-    </header>
+@extends('templates.template')
+@section('content')
+<header>
+    <h1 class="text-center mt-5 mb-5">Cadastrar Produto</h1>
+</header>
 
-    <div>
-        {!! Form::open(['route' => 'produtos.store','method' => 'POST', 'name' => 'form']) !!}
+<div class="col-md-6 offset-md-3">
+    <form name="formCad" id="formCad" method="POST" action="{{route('produtos.store')}}">
+        @csrf
+        <input class="form-control mt-4" type="text" name="nome" id="nome" placeholder="Nome: ">
+        <input class="form-control mt-4 mb-4" type="text" name="preco" id="preco" placeholder="Preço: ">
 
-            {!!Form::label('nome', 'Nome: ')!!}
-            {!!Form::text('nome', isset($produto)?$produto->nome:null, ['placeholder'=>'Informe o nome:', ($form)??null]) !!}
-            <br>
+        <input class="btn btn-primary " type="submit" value="Cadastrar">
 
-            {!! Form::label('preco', 'Preço:') !!}
-            {!! Form::text('preco', isset($produto)?$produto->preco:null, ['placeholder' => 'Informe o preço' ,($form)??null]  ) !!}
+    </form>
+</div>
 
-            <br>
-            {!! Form::submit('Salvar')!!}
-
-        {!! Form::close() !!}
-    </div>
-
-</body>
-</html>
-
+@endsection
