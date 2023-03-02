@@ -17,7 +17,8 @@ class RelatorioVendaController extends Controller{
      */
     public function index(){
         $relatorio_vendas = $this->relatorio_vendas->all();
-        return view('relatorioVendas', compact('relatorio_vendas'));
+        $produtos = $this->produtos;
+        return view('relatorioVendas', compact('relatorio_vendas', 'produtos'));
     }
 
     /**

@@ -1,8 +1,11 @@
 @extends('templates.template')
 @section('content')
 
-<header>
-    <h1 class="text-center">Lista de Produtos</h1>
+<header class="h1-relatorio" style="display: flex;">
+    <a href="{{route('relatorio.index')}}" >
+        <img src="{{asset('images/left.png')}}" alt="btn-voltar" class="btn-voltar">
+    </a>
+    <h1 >Lista de Produtos</h1>
 </header>
 
 @if(session('msg'))
@@ -18,8 +21,9 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-6 m-auto">
-            <table class="table text-center">
+        <div class="col-10 m-auto">
+            <table class="table table-bordered table-striped table-hover table-light table-sm text-center">
+                <caption>Lista de produtos</caption>
                 <thead class="table-dark">
                     <tr>
                         <th scope="col">Id</th>
@@ -35,13 +39,13 @@
                         <td>{{$produto->nome}}</td>
                         <td>{{number_format($produto->preco,2 ,",")}}</td>
 
-                        <td class="d-flex ">
+                        <td class="d-flex" style="justify-content: center;">
                             <a href="{{route('produtos.show', $produto->id)}}">
-                                <button type="button" class="btn btn-dark me-2">Visualizar</button>
+                                <button type="button" class="btn btn-dark me-3">Visualizar</button>
                             </a>
 
                             <a href="{{route('produtos.edit', $produto->id)}}">
-                                <button type="button" class="btn btn-primary me-2">Editar</button>
+                                <button type="button" class="btn btn-primary me-3">Editar</button>
                             </a>
 
                             <form action="{{route('produtos.destroy', $produto->id)}}" method="POST">
