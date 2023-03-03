@@ -70,15 +70,16 @@ input[type="text"]{
 
 
 .btn-voltar{
-    width: 10%;
+    width: 5%;
     padding-top: 22px;
+    position: absolute;
     float: left;
     padding-left: 10px;
     transition: all 0.2s ease-in-out;
 }
 
 .btn-voltar:hover{
-    width: 13%;
+    width: 7%;
     padding-top: 14px;
 
 }
@@ -86,6 +87,7 @@ input[type="text"]{
 .btn-voltar-form{
     width: 4%;
     float: left;
+
     padding-left: 10px;
     transition: all 0.2s ease-in-out;
 }
@@ -94,6 +96,19 @@ input[type="text"]{
     width: 5%;
 }
 
+.btn-voltar-produto{
+    width: 10%;
+    padding-top: 22px;
+    float: left;
+    padding-left: 10px;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-voltar-produto:hover{
+    width: 12%;
+    padding-top: 17px;
+
+}
 
 .welcome{
     background-image: url(../images/boas-vindas.jpg);

@@ -3,7 +3,7 @@
 
 <header class="h1-relatorio" style="display: flex;">
     <a href="{{route('relatorio.index')}}" >
-        <img src="{{asset('images/left.png')}}" alt="btn-voltar" class="btn-voltar">
+        <img src="{{asset('images/left.png')}}" alt="btn-voltar" class="btn-voltar-produto">
     </a>
     <h1 >Lista de Produtos</h1>
 </header>

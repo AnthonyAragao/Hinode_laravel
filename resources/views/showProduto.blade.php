@@ -8,7 +8,7 @@
     </a>
 </div>
 
-<h1 class="text-center  mb-5">Visualizar</h1> <hr>
+<h1 class="text-center mt-4 mb-5">Visualizar</h1> <hr>
 
 <div class="alinhamento-show" style="width: 450px; margin-top: 7rem;">
     Nome: {{$produto->nome}} <br>
