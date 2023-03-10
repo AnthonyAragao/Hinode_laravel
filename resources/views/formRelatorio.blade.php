@@ -56,7 +56,7 @@
                     <input class="form-control " type="text" name="valor_pago" id="valor_pago"
                         placeholder="Valor pago: " value="{{ $relatorio->valor_pago ?? '' }}"> <br>
 
-                    <input class="form-control" type="text" name="data_compra" id="data_compra"
+                    <input class="form-control" type="date" name="data_compra" id="data_compra"
                         placeholder="Data da compra: " value="{{ $relatorio->data_compra ?? '' }}"> <br>
 
                     <input class="form-control" type="text" name="descricao" id="descricao"
