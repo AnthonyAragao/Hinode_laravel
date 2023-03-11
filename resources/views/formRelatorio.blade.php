@@ -17,6 +17,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Edu+SA+Beginner&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <title>Crud laravel</title>
+    
 </head>
 
 <body class="body-form">

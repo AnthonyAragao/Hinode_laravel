@@ -40,7 +40,16 @@
                 <th scope="row">{{$relatorio->nome}}</th>
                 <th scope="row">{{$produtos->find($relatorio->produto_id)->nome}}</th>
                 <th scope="row">{{number_format($relatorio->valor_pago, 2, ",")}}</th>
-                <th scope="row">{{$relatorio->data_compra}}</th>
+                <th scope="row">
+                    <?php
+                        $data_array = explode("-", $relatorio->data_compra);
+                        $data_ordenado = array_reverse($data_array);
+                        $result_date = implode('/',$data_ordenado);
+                        print_r($result_date);
+                    ?>
+                </th>
+
+
                 <td class="d-flex" style="justify-content: space-evenly;">
                     <a href="{{route('relatorio.show', $relatorio->id)}}">
                         <button type="button" class="btn btn-dark me-2">Visualizar</button>

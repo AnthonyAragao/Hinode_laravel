@@ -18,12 +18,17 @@
         @endphp
 
         Nome: {{ $relatorio->nome }} <br>
-        Data da compra: {{ $relatorio->data_compra }} <br>
+        Data da compra:
+        <?php
+            $data_array = explode("-", $relatorio->data_compra);
+            $data_ordenado = array_reverse($data_array);
+            $result_date = implode('/',$data_ordenado);
+            print_r($result_date);
+        ?> <br>
         Produto comprado: {{ $produto->nome }} <br>
         Valor do produto: {{ number_format($produto->preco, 2, ',') }} <br>
         Valor pago: {{ number_format($relatorio->valor_pago, 2, ',') }} <br>
         Saldo devedor: {{ number_format($saldoDevedor, 2, ',') }} <br>
         Descrição da compra: {{ $relatorio->descricao }} <br>
-
     </div>
 @endsection
