@@ -1,12 +1,17 @@
 @extends('templates.template')
 @section('content')
 
-<header class="h1-relatorio" style="display: flex;">
-    <a href="{{route('relatorio.index')}}" >
-        <img src="{{asset('images/left.png')}}" alt="btn-voltar" class="btn-voltar-produto">
-    </a>
+
+<header class="h1-relatorio" >
+    <div style="display: flex;">
+        <a href="{{route('relatorio.index')}}" >
+            <img src="{{asset('images/left.png')}}" alt="btn-voltar" class="btn-voltar">
+        </a>
+    </div>
+
     <h1 >Lista de Produtos</h1>
 </header>
+
 
 @if(session('msg'))
     <div class="alert alert-success text-center" role="alert">

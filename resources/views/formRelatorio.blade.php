@@ -17,14 +17,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Edu+SA+Beginner&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <title>Crud laravel</title>
-    
+
 </head>
 
 <body class="body-form">
     <div>
-        <a href="{{ route('relatorio.index') }}">
-            <img src="{{ asset('images/left.png') }}" alt="btn-voltar" class="btn-voltar-form">
-        </a>
+        <div style="display: flex;">
+            <a href="{{ route('relatorio.index') }}">
+                <img src="{{ asset('images/left.png') }}" alt="btn-voltar" class="btn-voltar">
+            </a>
+        </div>
 
 
         <div class="container-form">

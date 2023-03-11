@@ -1,18 +1,37 @@
 *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: 'Josefin Sans', sans-serif;
 }
 
-h1{
-    font-family: 'Edu SA Beginner', cursiva;
-    font-size: 4rem;
+.welcome{
+    background-image: url(../images/boas-vindas.jpg);
+    background-size: cover;
 }
 
-.h1-relatorio{
+.container-saudacao{
+    display: flex;
+    flex-direction: column;
+    align-content: flex-end;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-right: 10px;
+    padding-top: 4rem;
+}
+
+
+#paragrafo-saudacao{
+    width: 500px;
+    height: 80px;
     background-color: #464545;
     color: white;
     text-align: center;
-}
+    border-radius: 15px;
+    padding-top: 20px;
+    margin-top: 180px;
 
+}
 
 body{
     background-image: url('../images/fundo.jpg');
@@ -23,6 +42,24 @@ body{
     background-image: url('../images/moca.jpg');
     background-size: cover;
 }
+
+input[type="text"]{
+    width: 30rem;
+    box-sizing: border-box;
+  }
+
+h1{
+    font-family: 'Edu SA Beginner', cursiva;
+    font-size: 4rem;
+}
+
+
+.h1-relatorio{
+    background-color: #6d6d6d;
+    color: white;
+    text-align: center;
+}
+
 
 .container-form{
     margin-right: 6rem;
@@ -47,11 +84,6 @@ body{
 }
 
 
-input[type="text"]{
-    width: 30rem;
-    box-sizing: border-box;
-  }
-
 
 .alinhamento-show{
     display: flex;
@@ -65,76 +97,18 @@ input[type="text"]{
     border: solid 1px #afafaf;
     margin-right: auto;
     margin-left: auto;
-
 }
 
 
 .btn-voltar{
-    width: 5%;
-    padding-top: 22px;
-    position: absolute;
+    width: 4%;
     float: left;
+    position: absolute;
     padding-left: 10px;
+    padding-top: 10px;
     transition: all 0.2s ease-in-out;
 }
 
 .btn-voltar:hover{
-    width: 7%;
-    padding-top: 14px;
-
-}
-
-.btn-voltar-form{
-    width: 4%;
-    float: left;
-
-    padding-left: 10px;
-    transition: all 0.2s ease-in-out;
-}
-
-.btn-voltar-form:hover{
     width: 5%;
-}
-
-.btn-voltar-produto{
-    width: 10%;
-    padding-top: 22px;
-    float: left;
-    padding-left: 10px;
-    transition: all 0.2s ease-in-out;
-}
-
-.btn-voltar-produto:hover{
-    width: 12%;
-    padding-top: 17px;
-
-}
-
-.welcome{
-    background-image: url(../images/boas-vindas.jpg);
-    background-size: cover;
-}
-
-.container-saudacao{
-    display: flex;
-    flex-direction: column;
-    align-content: flex-end;
-    flex-wrap: wrap;
-    align-items: center;
-    margin-right: 10px;
-    padding-top: 4rem;
-
-}
-
-
-#paragrafo-saudacao{
-    width: 500px;
-    height: 80px;
-    background-color: #464545;
-    color: white;
-    text-align: center;
-    border-radius: 15px;
-    padding-top: 20px;
-    margin-top: 180px;
-
 }
