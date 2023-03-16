@@ -45,10 +45,10 @@
             <form name="formCad" id="formCad" method="POST" action="{{ route('produtos.store') }}">
                 @csrf
                 <input class="form-control mt-4" type="text" name="nome" id="nome" placeholder="Nome: "
-                    value="{{ $produto->nome ?? '' }}"> <br>
+                    value="{{ $produto->nome ?? '' }}" required> <br>
 
                 <input class="form-control mt-2 mb-2" type="text" name="preco" id="preco" placeholder="Preço: "
-                    value="{{ $produto->preco ?? '' }}"> <br>
+                    value="{{ $produto->preco ?? '' }}" required> <br>
 
                 <input class="btn btn-primary " type="submit"
                     value="@if (isset($produto)) Editar @else Cadastrar @endif">

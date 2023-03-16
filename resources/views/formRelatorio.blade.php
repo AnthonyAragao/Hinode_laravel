@@ -54,18 +54,18 @@
                 <form name="formCad" id="formCad" method="POST" action="{{ route('relatorio.store') }}">
                     @csrf
                     <input class="form-control " type="text" name="nome" id="nome" placeholder="Nome: "
-                        value="{{ $relatorio->nome ?? '' }}"> <br>
+                        value="{{ $relatorio->nome ?? '' }}" required><br>
 
                     <input class="form-control " type="text" name="valor_pago" id="valor_pago"
-                        placeholder="Valor pago: " value="{{ $relatorio->valor_pago ?? '' }}"> <br>
+                        placeholder="Valor pago: " value="{{ $relatorio->valor_pago ?? '' }}" required> <br>
 
                     <input class="form-control" type="date" name="data_compra" id="data_compra"
-                        placeholder="Data da compra: " value="{{ $relatorio->data_compra ?? '' }}"> <br>
+                        placeholder="Data da compra: " value="{{ $relatorio->data_compra ?? '' }}" required> <br>
 
                     <input class="form-control" type="text" name="descricao" id="descricao"
-                        placeholder="Descrição da venda: " value="{{ $relatorio->descricao ?? '' }}"> <br>
+                        placeholder="Descrição da venda: " value="{{ $relatorio->descricao ?? '' }}" required> <br>
 
-                    <select class="form-control" name="produto_id" id="produto_id">
+                    <select class="form-control" name="produto_id" id="produto_id" required>
                         <option value="{{ $relatorio->produtoRelationship->id ?? '' }}">
                             {{ $relatorio->produtoRelationship->nome ?? 'Produto:' }}</option>
                         @foreach ($produtos as $produto)
