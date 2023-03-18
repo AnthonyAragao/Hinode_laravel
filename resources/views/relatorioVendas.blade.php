@@ -24,11 +24,11 @@
     <table class="table table-bordered table-striped table-hover table-dark table-responsive text-center">
         <thead>
             <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Cliente</th>
-                <th scope="col">Produto comprado</th>
-                <th scope="col">Valor pago</th>
-                <th scope="col">Data da compra</th>
+                <th scope="col">ID</th>
+                <th scope="col">CLIENTE</th>
+                <th scope="col">PRODUTO COMPRADO</th>
+                <th scope="col">VALOR PAGO</th>
+                <th scope="col">DATA DA COMPRA</th>
                 <th scope="col">. . .</th>
             </tr>
         </thead>
