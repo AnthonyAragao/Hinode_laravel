@@ -5,6 +5,7 @@ use App\Models\Produto;
 use Illuminate\Http\Request;
 
 class ProdutoController extends Controller{
+    protected $produtos;
     public function __construct(Produto $produtos){
         $this->produtos = $produtos;
     }
@@ -35,8 +36,7 @@ class ProdutoController extends Controller{
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request){
-        $produtos = $this->produtos->all();
-        $produto = $this->produtos->create([
+        $this->produtos->create([
             'nome' => $request->nome,
             'preco' => $request->preco
         ]);
