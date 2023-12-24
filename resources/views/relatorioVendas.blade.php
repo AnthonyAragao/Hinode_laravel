@@ -1,7 +1,7 @@
 @extends('templates.template')
 @section('content')
 
-<h1 class="text-center mt-3">Hinode do Querido</h1>
+<h1 class="h1-relatorio">Hinode do Querido</h1>
 
 @if(session('msg'))
     <div class="alert alert-success text-center role="alert">
@@ -9,7 +9,7 @@
     </div>
 @endif
 
-<div class="text-center mt-3 mb-5">
+<div class="text-center mt-5 mb-3">
     <a href="{{route('relatorio.create')}}">
         <button type="button" class="btn btn-outline-info btn-lg">Nova venda</button>
     </a>
@@ -18,14 +18,17 @@
     </a>
 </div>
 
-<h2 class="text-center mt-3">Relatorio de vendas</h2>
+<h2 class="text-center mt-3">Relatório de vendas</h2>
 
-<div class="col-4 m-auto">
-    <table class="table table-striped table-dark text-center">
+<div class="col-12 m-auto">
+    <table class="table table-bordered table-striped table-hover table-dark table-responsive text-center">
         <thead>
             <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Nome</th>
+                <th scope="col">ID</th>
+                <th scope="col">CLIENTE</th>
+                <th scope="col">PRODUTO COMPRADO</th>
+                <th scope="col">VALOR PAGO</th>
+                <th scope="col">DATA DA COMPRA</th>
                 <th scope="col">. . .</th>
             </tr>
         </thead>
@@ -35,7 +38,19 @@
             <tr>
                 <th scope="row">{{$relatorio->id}}</th>
                 <th scope="row">{{$relatorio->nome}}</th>
-                <td class="d-flex">
+                <th scope="row">{{$produtos->find($relatorio->produto_id)->nome}}</th>
+                <th scope="row">{{number_format($relatorio->valor_pago, 2, ",")}}</th>
+                <th scope="row">
+                    <?php
+                        $data_array = explode("-", $relatorio->data_compra);
+                        $data_ordenado = array_reverse($data_array);
+                        $result_date = implode('/',$data_ordenado);
+                        print_r($result_date);
+                    ?>
+                </th>
+
+
+                <td class="d-flex" style="justify-content: space-evenly;">
                     <a href="{{route('relatorio.show', $relatorio->id)}}">
                         <button type="button" class="btn btn-dark me-2">Visualizar</button>
                     </a>
