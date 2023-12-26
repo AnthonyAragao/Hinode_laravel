@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class ProdutoController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:sanctum')->except('index', 'show');
+    }
+
     public function index(){
         return Produto::all();
     }
@@ -22,11 +27,16 @@ class ProdutoController extends Controller
         if(empty($produto)){
             return response()->json(['message'=> 'Produto not found'], 404);
         }
-        
+
         return $produto;
     }
 
-    public function update(Produto $produto, Request $request){
+    public function update(int $produto, Request $request){
+        $produto = Produto::whereId($produto)->first();
+        if(empty($produto)){
+            return response()->json(['message'=> 'Produto not found'], 404);
+        }
+
         $produto->fill($request->all());
         $produto->save();
         return $produto;
