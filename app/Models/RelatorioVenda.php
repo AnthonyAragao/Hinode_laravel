@@ -12,23 +12,22 @@ class RelatorioVenda extends Model{
         'updated_at'
     ];
 
+    protected $appends = ['produto'];
 
-    protected $appends = [
-        'produto'
-    ];
-
-
-    public function getProdutoAttribute(){
+    public function getProdutoAttribute()
+    {
         return $this->produtoRelationship();
     }
 
-    public function setProdutoAttribute($value){
+    public function setProdutoAttribute($value)
+    {
         if(isset($value)){
             $this->attributes['produto_id'] = Produto::where('id', $value)->first()->id;
         }
     }
 
-    public function produtoRelationship(){
+    public function produtoRelationship()
+    {
         return $this->belongsTo(Produto::class,'produto_id');
     }
 }
